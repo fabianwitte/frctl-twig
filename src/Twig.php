@@ -26,6 +26,10 @@ class Twig
      */
     private static function getFilepathPrefix($rootDir, $fileDir)
     {
+        // support Windows
+        $rootDir = str_replace("\\", "/", $rootDir);
+		$fileDir = str_replace("\\", "/", $fileDir);
+        
         // Get the path segments for each path.
         $rootChunks = explode('/', $rootDir);
         $fileChunks = explode('/', $fileDir);
